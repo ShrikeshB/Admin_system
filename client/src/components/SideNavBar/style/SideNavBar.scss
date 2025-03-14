@@ -1,0 +1,47 @@
+.SideNavBar {
+  width: 20%;
+  padding: 1em;
+
+  .logo {
+    font-weight: 1000;
+  }
+  nav {
+    margin-top: 2em;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      margin-bottom: 2em;
+      padding: 1em;
+      border-radius: 0.6em;
+      transition: ease 0.25s;
+
+      a {
+        display: flex;
+        .img-container {
+          width: 20%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img {
+            width: 50%;
+          }
+        }
+      }
+    }
+
+    li:not(.active):hover {
+      transform: scale(1.2);
+      transition: ease 0.25s;
+    }
+
+    li.active {
+      background-color: var(--btn-color);
+      a {
+        color: white;
+      }
+    }
+  }
+}

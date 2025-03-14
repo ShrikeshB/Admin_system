@@ -1,0 +1,94 @@
+.ManageFiles {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+.ManageFiles header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ManageFiles header h1 {
+  letter-spacing: 0.2em;
+}
+.ManageFiles header .profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.ManageFiles header .profile .img-container {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 10%;
+}
+.ManageFiles header .profile .img-container img {
+  width: 70%;
+}
+.ManageFiles header .profile h1 {
+  letter-spacing: none;
+  font-size: 18px;
+}
+.ManageFiles .dash-card {
+  background-color: var(--card-color2);
+  padding: 0em 1em;
+  border-radius: 0.8em;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4em;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  padding-top: 2em;
+}
+.ManageFiles .dash-card img {
+  position: absolute;
+  width: 20%;
+  bottom: -5em;
+  opacity: 4%;
+}
+.ManageFiles .dash-card .left {
+  padding: 1em 0em;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.ManageFiles .dash-card .left h3 {
+  letter-spacing: 2px;
+}
+.ManageFiles .dash-card .right h1 {
+  font-size: 80px;
+  text-align: right;
+}
+.ManageFiles .list {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -moz-column-gap: 2em;
+       column-gap: 2em;
+  row-gap: 2em;
+}
+.ManageFiles .btn-grp {
+  margin: 2em 0em;
+}
+.ManageFiles .btn-grp .btn {
+  font-size: 16px;
+  margin-left: 1em;
+}
+.ManageFiles .btn-grp label {
+  cursor: pointer;
+  background-color: rgb(230, 230, 230);
+  border: none;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: ease 0.25s;
+}
+.ManageFiles .btn-grp label:hover {
+  transform: scale(1.08) !important;
+  transition: ease 0.25s;
+}
+.ManageFiles .btn-grp input {
+  display: none;
+}/*# sourceMappingURL=ManageFiles.css.map */

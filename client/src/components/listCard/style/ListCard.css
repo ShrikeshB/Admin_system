@@ -1,0 +1,68 @@
+.ListCard {
+  margin-bottom: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ListCard .card {
+  background-color: white;
+  border-radius: 5em;
+  padding: 0 1em;
+  display: flex;
+  width: 90%;
+  overflow: hidden;
+  transition: ease 0.25s;
+}
+.ListCard .card .contents {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.1fr;
+  width: 90%;
+  align-content: center;
+  cursor: pointer;
+  padding: 1.4em 0em;
+  position: relative;
+}
+.ListCard .card .contents p {
+  font-weight: 400;
+}
+.ListCard .card .contents .view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ListCard .card .contents .view .view-img {
+  width: 75%;
+  opacity: 0%;
+  transition: ease 0.25s;
+}
+.ListCard .card .contents:hover .view-img {
+  opacity: 100%;
+  transition: ease 0.25s;
+}
+.ListCard .card .btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 10%;
+}
+.ListCard .card .btns button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 60%;
+  height: 40%;
+  padding: 0.5em;
+  cursor: pointer;
+}
+.ListCard .card .btns button img {
+  width: 100%;
+}
+.ListCard .card .btns button + button {
+  margin-left: 1em;
+}
+.ListCard .card:hover {
+  transform: scale(1.04);
+  transition: ease 0.25s;
+}/*# sourceMappingURL=ListCard.css.map */

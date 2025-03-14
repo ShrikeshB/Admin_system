@@ -1,0 +1,65 @@
+.agentCard {
+  margin-bottom: 2em;
+}
+.agentCard .card {
+  background-color: var(--bg-color);
+  border-radius: 5em;
+  padding: 0 1em;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  transition: ease 0.25s;
+}
+.agentCard .card .contents {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.1fr;
+  width: 90%;
+  align-content: center;
+  cursor: pointer;
+  padding: 1.4em 0em;
+  position: relative;
+}
+.agentCard .card .contents p {
+  font-weight: 400;
+}
+.agentCard .card .contents .view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.agentCard .card .contents .view .view-img {
+  width: 75%;
+  opacity: 0%;
+  transition: ease 0.25s;
+}
+.agentCard .card .contents:hover .view-img {
+  opacity: 100%;
+  transition: ease 0.25s;
+}
+.agentCard .card .btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 10%;
+}
+.agentCard .card .btns button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 35%;
+  height: 40%;
+  padding: 0.5em;
+  cursor: pointer;
+}
+.agentCard .card .btns button img {
+  width: 100%;
+}
+.agentCard .card .btns button + button {
+  margin-left: 1em;
+}
+.agentCard .card:hover {
+  transform: scale(1.04);
+  transition: ease 0.25s;
+}/*# sourceMappingURL=AgentCard.css.map */

@@ -1,0 +1,27 @@
+.CsvCard {
+  background-color: var(--bg-color);
+  display: flex;
+  padding: 1em;
+  border-radius: 0.8em;
+  cursor: pointer;
+  transition: ease 0.25s;
+}
+.CsvCard .img-container {
+  width: 20%;
+}
+.CsvCard .img-container img {
+  width: 100%;
+}
+.CsvCard .contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.CsvCard .contents p {
+  font-size: 12px;
+}
+
+.CsvCard:hover {
+  transform: scale(1.08);
+  transition: ease 0.25s;
+}/*# sourceMappingURL=CsvCard.css.map */

@@ -1,0 +1,43 @@
+.SideNavBar {
+  width: 20%;
+  padding: 1em;
+}
+.SideNavBar .logo {
+  font-weight: 1000;
+}
+.SideNavBar nav {
+  margin-top: 2em;
+}
+.SideNavBar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.SideNavBar ul li {
+  margin-bottom: 2em;
+  padding: 1em;
+  border-radius: 0.6em;
+  transition: ease 0.25s;
+}
+.SideNavBar ul li a {
+  display: flex;
+}
+.SideNavBar ul li a .img-container {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.SideNavBar ul li a .img-container img {
+  width: 50%;
+}
+.SideNavBar ul li:not(.active):hover {
+  transform: scale(1.2);
+  transition: ease 0.25s;
+}
+.SideNavBar ul li.active {
+  background-color: var(--btn-color);
+}
+.SideNavBar ul li.active a {
+  color: white;
+}/*# sourceMappingURL=SideNavBar.css.map */

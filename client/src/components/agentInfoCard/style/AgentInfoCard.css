@@ -1,0 +1,80 @@
+.AgentInfoCard {
+  background-color: rgba(0, 0, 0, 0.11);
+  position: absolute;
+  z-index: 100;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.AgentInfoCard .container {
+  border-radius: 0.8em;
+  background-color: #fff;
+  padding: 1em;
+  display: flex;
+  width: 80%;
+  height: 80%;
+  background-color: var(--bg-color);
+  position: relative;
+}
+.AgentInfoCard .container .close-btn {
+  position: absolute;
+  z-index: 100;
+  top: 5%;
+  right: -40%;
+  cursor: pointer;
+}
+.AgentInfoCard .container .close-btn img {
+  width: 6%;
+  transition: ease 0.15s;
+}
+.AgentInfoCard .container .close-btn:hover img {
+  transform: scale(1.1);
+  transition: ease 0.15s;
+}
+.AgentInfoCard .container .left {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.AgentInfoCard .container .left p {
+  opacity: 50%;
+  font-size: 12px;
+  margin-top: 1em;
+}
+.AgentInfoCard .container .left .profile {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.AgentInfoCard .container .left .profile img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.AgentInfoCard .container .right {
+  width: 85%;
+  padding: 2em;
+}
+.AgentInfoCard .container .right .list {
+  overflow-x: hidden;
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.AgentInfoCard.active {
+  display: flex;
+}/*# sourceMappingURL=AgentInfoCard.css.map */
