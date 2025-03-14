@@ -7,6 +7,7 @@ router.post("/loginAgent", AgentsController.loginAgent);
 router.post("/deleteAgent/:aid", AgentsController.deleteAgent);
 router.post("/updateAgent", AgentsController.updateAgent);
 router.get("/getAllAgents", AgentsController.getAllAgents);
+router.get("/getLimitedAgents", AgentsController.getLimitedAgents);
 router.get("/getSingleAgent/:aid", AgentsController.getSingleAgent);
 router.get("/getAgentCount", AgentsController.getAgentCount);
 

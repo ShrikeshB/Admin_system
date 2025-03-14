@@ -8,6 +8,7 @@ import "./style/Agent.css";
 import ListInfoCard from "../../components/listInfoCard/ListInfoCard";
 import UpdateAgent from "../../components/updateAgent/UpdateAgent";
 import AddNewAgent from "../../components/addNewAgent/AddNewAgent";
+import { useNavigate } from "react-router-dom";
 
 function Agents() {
   const [agentsData, setAgentsData] = useState([]);
@@ -25,6 +26,7 @@ function Agents() {
       console.error("Error fetching agents:", error);
     }
   }
+
 
   const [openCard, setOpenCard] = useState(false);
   const cardStatus = () => {
@@ -91,9 +93,19 @@ function Agents() {
     getAllAgents();
   }, []); // Runs only on mount
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+      navigate("/adminlogin"); // Redirect if no token found
+    }
+  }, [navigate]);
+
   return (
     <div className="Agents">
-      <SideNavBar />
+      <SideNavBar flag="ManageAgents" />
       <AgentInfoCard
         data={singleAgentInfo}
         status={openCard}

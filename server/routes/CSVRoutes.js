@@ -44,6 +44,8 @@ router.post(
   CSVController.uploadCSVFile
 );
 
-router.post("/deleteCSVFile", CSVController.deleteCSVFile);
+router.get("/getCSVFile", CSVController.getCSVFile);
+router.get("/getLimitedCSVFile", CSVController.getLimitedCSVFile);
+router.get("/getFilesCount", CSVController.getFilesCount);
 
 module.exports = router;

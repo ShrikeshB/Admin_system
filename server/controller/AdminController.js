@@ -50,6 +50,7 @@ const addAdmin = async (req, res) => {
 const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(email);
 
     //  check for missing input field
     if (!email || !password) {
@@ -89,11 +90,14 @@ const loginAdmin = async (req, res) => {
       sameSite: "strict", // Protect against CSRF
     });
 
+
+
     console.log("Login successful");
 
     // Send a success response along with the token
     res.status(200).json({
       message: "Login successful",
+      id:user._id,
       token, // Including the token in the response for convenience
     });
   } catch (err) {
@@ -103,8 +107,5 @@ const loginAdmin = async (req, res) => {
       .json({ message: "internal error. Please try again later!" });
   }
 };
-
-
-
 
 module.exports = { addAdmin, loginAdmin };

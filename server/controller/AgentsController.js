@@ -235,6 +235,37 @@ const getAllAgents = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+const getLimitedAgents = async (req, res) => {
+  try {
+    const agents = await agentModel.aggregate([
+      {
+        $lookup: {
+          from: "datadistributions", // Ensure this matches your MongoDB collection name
+          localField: "_id",
+          foreignField: "agentId",
+          as: "distributedData",
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          email: 1,
+          mobile: 1,
+          createdAt: 1,
+          dataCount: { $size: "$distributedData" }, // Count of assigned tasks per agent
+        },
+      },
+      { $sort: { createdAt: -1 } }, // Sort by most recent first
+      { $limit: 5 }, // Limit to 5 agents
+    ]);
+
+    res.status(200).json(agents);
+  } catch (err) {
+    console.error("Error fetching agents:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 // get specific agent data
 const getSingleAgent = async (req, res) => {
@@ -272,4 +303,5 @@ module.exports = {
   getAllAgents,
   getSingleAgent,
   getAgentCount,
+  getLimitedAgents,
 };

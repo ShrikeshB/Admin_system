@@ -45,10 +45,10 @@ function AgentInfoCard({
         </div>
         <div className="left">
           <div className="profile">
-            <img src={images.profile} alt="Profile" />
+            <img src={icons.profile} alt="Profile" />
           </div>
           <h3>{data?.name || "Unknown Agent"}</h3>
-          <h5>+91-{data?.mobile || "N/A"}</h5>
+          <h5>{data?.mobile || "N/A"}</h5>
           <p>{formattedDate}</p>
         </div>
         <div className="right">

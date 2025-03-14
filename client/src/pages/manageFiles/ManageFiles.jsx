@@ -1,12 +1,14 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CsvCard from "../../components/csvCard/CsvCard";
 import SideNavBar from "../../components/SideNavBar/SideNavBar";
 import icons from "../../iconsLinks";
 import axios from "axios";
 import "./style/ManageFiles.css";
+import { useNavigate } from "react-router-dom";
 
 function ManageFiles() {
   const [file, setFile] = useState(null);
+  const [adminId, setAdminId] = useState(null);
   const fileInputRef = useRef(null);
 
   const handleFileUpload = async (e) => {
@@ -19,6 +21,7 @@ function ManageFiles() {
 
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("adminId", adminId);
 
     console.log(file.name);
 
@@ -34,14 +37,41 @@ function ManageFiles() {
       alert("File uploaded successfully!");
       setFile(null); // Reset file after upload
       fileInputRef.current.value = ""; // Clear input field
+      getAllFilesNames();
     } catch (err) {
       console.error("Error uploading file:", err);
     }
   };
 
+  // Fetch all file names
+  const [fileNames, setFileNames] = useState([]);
+  async function getAllFilesNames() {
+    try {
+      const res = await axios.get(
+        "http://localhost:3001/api/CSVFiles/getCSVFile"
+      );
+      setFileNames(res.data);
+    } catch (error) {
+      console.error("Error fetching agents:", error);
+    }
+  }
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+      navigate("/adminlogin"); // Redirect if no token found
+    } else {
+      getAllFilesNames();
+    }
+    setAdminId(localStorage.getItem("id"));
+  }, [navigate]);
+
   return (
     <div className="ManageFiles">
-      <SideNavBar />
+      <SideNavBar flag={"ManageFiles"} />
       <div className="page-container">
         {/* Header Section */}
         <header>
@@ -61,7 +91,7 @@ function ManageFiles() {
             <h3>Total Files</h3>
           </div>
           <div className="right">
-            <h1>100</h1>
+            <h1>{fileNames.length}</h1>
           </div>
         </div>
 
@@ -74,7 +104,7 @@ function ManageFiles() {
                 type="file"
                 id="file"
                 ref={fileInputRef}
-                accept=".csv"
+                accept=".csv, .xlsx, .xls"
                 onChange={(e) => setFile(e.target.files[0])}
               />
             </label>
@@ -87,9 +117,11 @@ function ManageFiles() {
         {/* File List Section */}
         <h1 className="header-fs">Files List</h1>
         <div className="list">
-          {[...Array(10)].map((_, index) => (
-            <CsvCard key={index} />
-          ))}
+          {fileNames.length > 0 ? (
+            fileNames.map((val) => <CsvCard key={val._id} data={val} />)
+          ) : (
+            <p>No agents found.</p>
+          )}
         </div>
       </div>
     </div>
