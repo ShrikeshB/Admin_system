@@ -13,35 +13,34 @@ Follow these steps to run the project locally:
    git clone https://github.com/ShrikeshB/Admin_system
    cd Admin_system
    ```
-
-2. **Navigate to the Client Folder**
-   ```bash
-   cd client
-   ```
-
-3. **Install Client Dependencies**
-   ```bash
-   npm install
-   ```
-
-4. **Start the Frontend Development Server**
-   ```bash
-   npm start
-   ```
-
-5. **Navigate to the Server Folder**
+2. **Navigate to the Server Folder**
    ```bash
    cd ../server
    ```
 
-6. **Install Server Dependencies**
+3. **Install Server Dependencies**
    ```bash
    npm install
    ```
 
-7. **Start the Backend Server**
+4. **Start the Backend Server**
    ```bash
    nodemon server.js
+   ```
+
+5. **Navigate to the Client Folder**
+   ```bash
+   cd client
+   ```
+
+6. **Install Client Dependencies**
+   ```bash
+   npm install
+   ```
+
+7. **Start the Frontend Development Server**
+   ```bash
+   npm start
    ```
 
 8. **Access the Application**
