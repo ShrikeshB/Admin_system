@@ -4,6 +4,7 @@
 Make sure you have the following installed on your system:
 - Node.js (Latest LTS version recommended)
 - npm (Node Package Manager)
+- MongoDB (Locally or Cloud-based like MongoDB Atlas)
 
 ## Installation & Setup
 Follow these steps to run the project locally:
@@ -13,46 +14,66 @@ Follow these steps to run the project locally:
    git clone https://github.com/ShrikeshB/Admin_system
    cd Admin_system
    ```
-2. **Navigate to the Server Folder**
+
+2. **Set Up MongoDB**
+   - Start your MongoDB server.
+   - Create a new database named **Admin_System**.
+   - Inside the **Admin_System** database, create a collection named **admins**.
+   - Insert sample admin details with the following fields:
+     ```json
+     {
+       "name": "Admin Name",
+       "email": "admin@example.com",
+       "password": "hashed_password",
+       "createdAt": "2025-03-15T00:00:00Z"
+     }
+     ```
+
+3. **Navigate to the Server Folder**
    ```bash
-   cd ../server
+   cd server
    ```
 
-3. **Install Server Dependencies**
+4. **Install Server Dependencies**
    ```bash
    npm install
    ```
 
-4. **Start the Backend Server**
+5. **Start the Backend Server**
    ```bash
    nodemon server.js
    ```
 
-5. **Navigate to the Client Folder**
+6. **Navigate to the Client Folder**
    ```bash
    cd client
    ```
 
-6. **Install Client Dependencies**
+7. **Install Client Dependencies**
    ```bash
    npm install
    ```
 
-7. **Start the Frontend Development Server**
+8. **Start the Frontend Development Server**
    ```bash
    npm start
    ```
 
-8. **Access the Application**
+9. **Access the Application**
    Open your browser and go to:
    ```
    http://localhost:3000/
    ```
 
 ## Additional Notes
+- Ensure MongoDB is running before starting the backend server.
 - Ensure the backend server is running before accessing the frontend.
 - If you encounter errors, try running `npm audit fix` or reinstalling dependencies using `npm ci`.
 - The application will automatically reload when you make changes to the code.
+
+## License
+This project is licensed under [MIT License](LICENSE).
+
 
 # Screenshots
 Admin Login 
