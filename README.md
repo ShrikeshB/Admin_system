@@ -14,42 +14,37 @@ Follow these steps to run the project locally:
    cd Admin_system
    ```
 
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Navigate to the Client Folder**
+2. **Navigate to the Client Folder**
    ```bash
    cd client
    ```
 
-4. **Install Client Dependencies**
+3. **Install Client Dependencies**
    ```bash
    npm install
    ```
 
-5. **Start the Frontend Development Server**
+4. **Start the Frontend Development Server**
    ```bash
    npm start
    ```
 
-6. **Navigate to the Server Folder**
+5. **Navigate to the Server Folder**
    ```bash
    cd ../server
    ```
 
-7. **Install Server Dependencies**
+6. **Install Server Dependencies**
    ```bash
    npm install
    ```
 
-8. **Start the Backend Server**
+7. **Start the Backend Server**
    ```bash
    nodemon server.js
    ```
 
-9. **Access the Application**
+8. **Access the Application**
    Open your browser and go to:
    ```
    http://localhost:3000/
