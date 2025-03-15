@@ -206,10 +206,24 @@ const loginAgent = async (req, res) => {
 
 const getAllAgents = async (req, res) => {
   try {
+    const { search } = req.params;
+
+    const query =
+      search && search !== "null"
+        ? {
+            $or: [
+              { name: { $regex: search, $options: "i" } },
+              { email: { $regex: search, $options: "i" } },
+              { mobile: { $regex: search, $options: "i" } },
+            ],
+          }
+        : {}; // If search is empty, return all agents
+
     const agents = await agentModel.aggregate([
+      { $match: query }, // Apply search filter only if needed
       {
         $lookup: {
-          from: "datadistributions", // The collection name should match the actual collection in MongoDB
+          from: "datadistributions",
           localField: "_id",
           foreignField: "agentId",
           as: "distributedData",
@@ -222,12 +236,10 @@ const getAllAgents = async (req, res) => {
           email: 1,
           mobile: 1,
           createdAt: 1,
-          dataCount: { $size: "$distributedData" }, // Count of assigned tasks per agent
+          dataCount: { $size: "$distributedData" },
         },
       },
     ]);
-
-    console.log(agents);
 
     res.status(200).json(agents);
   } catch (err) {
@@ -235,6 +247,10 @@ const getAllAgents = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+
+
+
 const getLimitedAgents = async (req, res) => {
   try {
     const agents = await agentModel.aggregate([

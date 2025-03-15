@@ -39,7 +39,7 @@ function AgentCard({
         >
           <h3>{data.name}</h3>
           <p>{formattedDate}</p>
-          <p>{data.dataCount} contacts assigned</p>
+          <p>{data.dataCount} data assigned</p>
           <div className="view">
             <img className="view-img" src={icons.view} alt="View" />
           </div>

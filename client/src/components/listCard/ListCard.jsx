@@ -24,7 +24,7 @@ function ListCard({ data, listCardStatus, getSingleListInfo }) {
         >
           <h4>{data?.firstName || "Unknown"}</h4>
           <p>{formattedDate}</p>
-          <p>{data?.phone || "N/A"}</p>
+          <p>+91-{data?.phone || "N/A"}</p>
           <div className="view">
             <img className="view-img" src={icons.view} alt="View Details" />
           </div>

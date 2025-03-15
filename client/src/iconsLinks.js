@@ -13,6 +13,7 @@ import del from "./assets/icons/delete.png";
 import view from "./assets/icons/view.png";
 import logout from "./assets/icons/logout.png";
 import add from "./assets/icons/add.png";
+import search from "./assets/icons/search.png";
 
 const icons = {
   close,
@@ -30,6 +31,7 @@ const icons = {
   view,
   logout,
   add,
+  search,
 };
 
 export default icons;

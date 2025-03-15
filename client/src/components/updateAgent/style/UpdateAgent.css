@@ -51,6 +51,19 @@
   margin-bottom: 1em;
   border-radius: 0.8em;
 }
+.UpdateAgent .container form .mobile-inputs {
+  display: flex;
+  width: 100%;
+}
+.UpdateAgent .container form .mobile-inputs select {
+  width: 10%;
+  padding: 0.2em;
+  height: 80%;
+  margin-right: 1em;
+}
+.UpdateAgent .container form .mobile-inputs input {
+  width: 90%;
+}
 
 .UpdateAgent.active {
   display: flex;

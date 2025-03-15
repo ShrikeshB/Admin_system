@@ -80,7 +80,7 @@ function ManageFiles() {
             <div className="img-container">
               <img src={icons.profile} alt="Profile" />
             </div>
-            <h1>Andrew</h1>
+            <h1>Max</h1>
           </div>
         </header>
 
@@ -120,7 +120,7 @@ function ManageFiles() {
           {fileNames.length > 0 ? (
             fileNames.map((val) => <CsvCard key={val._id} data={val} />)
           ) : (
-            <p>No agents found.</p>
+            <p>No files found.</p>
           )}
         </div>
       </div>

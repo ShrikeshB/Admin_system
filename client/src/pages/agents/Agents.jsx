@@ -15,11 +15,12 @@ function Agents() {
   const [singleAgentInfo, setSingleAgentInfo] = useState({});
   const [singleListInfo, setsingleListInfo] = useState({});
 
-  // Fetch all agents
+  // Fetch all agents and searched agents
+  const [searchAgent, setSearchAgent] = useState(null);
   async function getAllAgents() {
     try {
       const res = await axios.get(
-        "http://localhost:3001/api/agent/getAllAgents"
+        `http://localhost:3001/api/agent/getAllAgents/${searchAgent || null}`
       );
       setAgentsData(res.data);
     } catch (error) {
@@ -27,24 +28,27 @@ function Agents() {
     }
   }
 
-
   const [openCard, setOpenCard] = useState(false);
   const cardStatus = () => {
     setOpenCard(!openCard);
     console.log(openCard);
   };
+
+  // list details card open close status handler
   const [listCardOpen, setListCardOpen] = useState(false);
   const listCardStatus = () => {
     setListCardOpen(!listCardOpen);
     console.log(listCardOpen);
   };
 
+  // update agent form open close status handler
   const [updateAgentForm, setUpdateAgentForm] = useState(false);
   const updateAgentFormStatus = () => {
     setUpdateAgentForm(!updateAgentForm);
     console.log("updateAgentForm= " + updateAgentForm);
   };
 
+  // agent form open close status handler
   const [addAgentForm, setAddAgentForm] = useState(false);
   const addAgentFormStatus = () => {
     setAddAgentForm(!addAgentForm);
@@ -76,6 +80,7 @@ function Agents() {
     }
   };
 
+  // get single agent info for updating the agent
   const getSingleAgentInfo_UpdateForm = async (aid) => {
     try {
       const res = await axios.get(
@@ -89,9 +94,27 @@ function Agents() {
     }
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    getAllAgents();
+  };
+
+  // Fetch all agents count
+  const [agentCount, setAgentCount] = useState(0);
+  async function getAgentCount() {
+    try {
+      const res = await axios.get(
+        "http://localhost:3001/api/agent/getAgentCount"
+      );
+      setAgentCount(res.data.count); // Extract the 'count' value
+    } catch (error) {
+      console.error("Error fetching agents:", error);
+    }
+  }
+
   useEffect(() => {
     getAllAgents();
-  }, []); // Runs only on mount
+  }, [searchAgent]);
 
   const navigate = useNavigate();
 
@@ -100,6 +123,8 @@ function Agents() {
 
     if (!token) {
       navigate("/adminlogin"); // Redirect if no token found
+    } else {
+      getAgentCount();
     }
   }, [navigate]);
 
@@ -144,7 +169,7 @@ function Agents() {
             <div className="img-container">
               <img src={icons.profile} alt="Profile" />
             </div>
-            <h1>Andrew</h1>
+            <h1>Max</h1>
           </div>
         </header>
 
@@ -154,13 +179,27 @@ function Agents() {
             <h3>Total Agents</h3>
           </div>
           <div className="right">
-            <h1>{agentsData.length}</h1>
+            <h1>{agentCount}</h1>
           </div>
         </div>
 
         <br />
         <h1 className="header-fs">Agents list</h1>
 
+        {/* search box here */}
+        <form action="" className="search-form" onSubmit={handleSearch}>
+          <input
+            type="search"
+            placeholder="search agent"
+            onChange={(e) => {
+              setSearchAgent(e.target.value);
+            }}
+          />
+          <button>
+            <img src={icons.search} alt="" />
+          </button>
+        </form>
+        {/* agent list here */}
         <div className="list">
           {agentsData.length > 0 ? (
             agentsData.map((val) => (

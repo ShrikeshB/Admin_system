@@ -8,15 +8,17 @@ function UpdateAgent({ data, status, updateAgentFormStatus, getAllAgents }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
+  const [mobileCode, setMobileCode] = useState("+91");
 
   const submitUpdate = async (e) => {
     e.preventDefault();
     const fieldsToUpdate = {};
+    const phone = mobileCode + "-" + mobile;
     fieldsToUpdate.aid = data._id;
     if (aname) fieldsToUpdate.aname = aname;
     if (email) fieldsToUpdate.email = email;
     if (password) fieldsToUpdate.password = password;
-    if (mobile) fieldsToUpdate.mobile = mobile;
+    if (mobile) fieldsToUpdate.mobile = phone;
 
     console.log(fieldsToUpdate);
 
@@ -61,12 +63,30 @@ function UpdateAgent({ data, status, updateAgentFormStatus, getAllAgents }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            type="text"
-            placeholder={data.mobile}
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-          />
+          <div className="mobile-inputs">
+            <select
+              onChange={(e) => {
+                setMobileCode(e.target.value);
+              }}
+            >
+              <option value="+91">+91</option>
+              <option value="+44">+44</option>
+              <option value="+61">+61</option>
+              <option value="+1">+1</option>
+              <option value="+81">+81</option>
+              <option value="+971">+971</option>
+            </select>
+            <input
+              type="tel"
+              placeholder={data.mobile}
+              onChange={(e) => {
+                const input = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                if (input.length <= 10) setMobile(input); // Allow max 10 digits
+              }}
+              pattern="[0-9]{10}" // Ensure exactly 10 digits
+              title="Enter a valid 10-digit mobile number"
+            />
+          </div>
           <input
             type="password"
             placeholder="xxxxx"

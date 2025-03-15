@@ -18,7 +18,7 @@ function ListInfoCard({ data, status, listCardStatus }) {
         <div className="contents">
           <div className="header">
             <h2>{data.firstName}</h2>
-            <h3>{data.phone}</h3>
+            <h3>+91-{data.phone}</h3>
             <p>{formattedDate}</p>
           </div>
           <p className="para">{data.notes} </p>
