@@ -1,3 +1,5 @@
+// admin login page where admin will enter his/her login details and get verified!
+
 import { useState } from "react";
 import "./style/AdminLogin.css";
 import axios from "axios";
@@ -6,6 +8,8 @@ function AdminLogin() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const navigate = useNavigate();
+
+  // handle login button
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

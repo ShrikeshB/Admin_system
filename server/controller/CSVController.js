@@ -5,6 +5,7 @@ const CSVFileModel = require("../models/CSVFileModel");
 const Agent = require("../models/AgentModel"); // Import Agent model
 const DataDistribution = require("../models/DataDistribution"); // Import DataDistribution model
 
+// get the data from upload csv file and distribute the data to agents and store it in database
 const uploadCSVFile = async (req, res) => {
   try {
     if (!req.file) {

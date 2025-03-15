@@ -193,17 +193,7 @@ const loginAgent = async (req, res) => {
   }
 };
 
-// fetch all the agents data
-// const getAllAgents = async (req, res) => {
-//   try {
-//     const agents = await agentModel.find().lean();
-//     res.status(200).json(agents);
-//   } catch (err) {
-//     console.error("Error fetching agents:", err);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
-
+// fetch all the agent as well apply search filter
 const getAllAgents = async (req, res) => {
   try {
     const { search } = req.params;
@@ -248,9 +238,7 @@ const getAllAgents = async (req, res) => {
   }
 };
 
-
-
-
+// fetch 5 recently added agents
 const getLimitedAgents = async (req, res) => {
   try {
     const agents = await agentModel.aggregate([

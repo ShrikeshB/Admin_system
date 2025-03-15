@@ -1,3 +1,5 @@
+// page to manage the CSV xls files and upload and distribute the data to agents
+
 import { useEffect, useRef, useState } from "react";
 import CsvCard from "../../components/csvCard/CsvCard";
 import SideNavBar from "../../components/SideNavBar/SideNavBar";
@@ -11,6 +13,7 @@ function ManageFiles() {
   const [adminId, setAdminId] = useState(null);
   const fileInputRef = useRef(null);
 
+  // handle file upload and distribute data
   const handleFileUpload = async (e) => {
     e.preventDefault();
 

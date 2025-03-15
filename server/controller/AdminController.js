@@ -1,6 +1,8 @@
 const AdminModel = require("../models/AdminModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
+// add new admin
 const addAdmin = async (req, res) => {
   try {
     const { uname, email, password } = req.body;
@@ -47,6 +49,7 @@ const addAdmin = async (req, res) => {
   }
 };
 
+// verify the admin login details
 const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -90,14 +93,12 @@ const loginAdmin = async (req, res) => {
       sameSite: "strict", // Protect against CSRF
     });
 
-
-
     console.log("Login successful");
 
     // Send a success response along with the token
     res.status(200).json({
       message: "Login successful",
-      id:user._id,
+      id: user._id,
       token, // Including the token in the response for convenience
     });
   } catch (err) {

@@ -1,3 +1,5 @@
+// manage agent page where list of agent will be displayed and perform CURD operation on agents
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AgentCard from "../../components/agentCard/AgentCard";
@@ -28,6 +30,7 @@ function Agents() {
     }
   }
 
+  // handle agent info card status open or close
   const [openCard, setOpenCard] = useState(false);
   const cardStatus = () => {
     setOpenCard(!openCard);
@@ -94,6 +97,7 @@ function Agents() {
     }
   };
 
+  // handle on submit search button
   const handleSearch = (e) => {
     e.preventDefault();
     getAllAgents();
@@ -112,12 +116,14 @@ function Agents() {
     }
   }
 
+  // load agents when user will search for specific agent
   useEffect(() => {
     getAllAgents();
   }, [searchAgent]);
 
   const navigate = useNavigate();
 
+  // check admin has logged in or not
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
@@ -131,6 +137,8 @@ function Agents() {
   return (
     <div className="Agents">
       <SideNavBar flag="ManageAgents" />
+
+      {/* show agent's detaile info */}
       <AgentInfoCard
         data={singleAgentInfo}
         status={openCard}
@@ -139,12 +147,14 @@ function Agents() {
         getSingleListInfo={getSingleListInfo}
       />
 
+      {/* show list data detailed info */}
       <ListInfoCard
         data={singleListInfo}
         status={listCardOpen}
         listCardStatus={listCardStatus}
       />
 
+      {/* form to update agent details */}
       <UpdateAgent
         data={singleAgentInfo}
         getAllAgents={getAllAgents}
@@ -152,16 +162,19 @@ function Agents() {
         status={updateAgentForm}
       />
 
+      {/* form to add new agent */}
       <AddNewAgent
         addAgentFormStatus={addAgentFormStatus}
         status={addAgentForm}
         getAllAgents={getAllAgents}
       />
 
+      {/* button to open the add agent form which is present in right corner of the website */}
       <button className="agent-btn" onClick={addAgentFormStatus}>
         <img src={icons.add} alt="" />
       </button>
 
+      {/* shows main content on the page */}
       <div className="page-container">
         <header>
           <h1>Dashboard</h1>
@@ -173,6 +186,7 @@ function Agents() {
           </div>
         </header>
 
+        {/* shows total agents  */}
         <div className="dash-card">
           <img src={icons.user1} alt="User" />
           <div className="left">

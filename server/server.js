@@ -21,10 +21,10 @@ app.use(bodyParser.json());
 // connect mongoDB
 connectDB();
 
-app.use("/api/admin", AdminRoutes);
-app.use("/api/agent", AgentsRoutes);
-app.use("/api/dataDistribution", DataDistributionRoutes);
-app.use("/api/CSVFiles", CSVRoutes);
+app.use("/api/admin", AdminRoutes); // admin api
+app.use("/api/agent", AgentsRoutes); // login api
+app.use("/api/dataDistribution", DataDistributionRoutes); // api to handle distributed data
+app.use("/api/CSVFiles", CSVRoutes); // handle uploading of csv files
 
 app.listen(process.env.PORT, (err) => {
   if (!err) {

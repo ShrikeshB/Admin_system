@@ -44,8 +44,13 @@ router.post(
   CSVController.uploadCSVFile
 );
 
+// routes to get all the uploaded csv files
 router.get("/getCSVFile", CSVController.getCSVFile);
+
+// route to get the recently added 5 files
 router.get("/getLimitedCSVFile", CSVController.getLimitedCSVFile);
+
+// route to get fils count
 router.get("/getFilesCount", CSVController.getFilesCount);
 
 module.exports = router;

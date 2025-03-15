@@ -1,3 +1,5 @@
+// dashboard page to know the summary of the data
+
 import { useNavigate } from "react-router-dom";
 import AgentCard from "../../components/agentCard/AgentCard";
 import CsvCard from "../../components/csvCard/CsvCard";
@@ -28,24 +30,28 @@ function Dashboard() {
     }
   };
 
+  // handle agent info card status open or close
   const [openCard, setOpenCard] = useState(false);
   const cardStatus = () => {
     setOpenCard(!openCard);
     console.log(openCard);
   };
 
+  // list details card open close status handler
   const [listCardOpen, setListCardOpen] = useState(false);
   const listCardStatus = () => {
     setListCardOpen(!listCardOpen);
     console.log(listCardOpen);
   };
 
+  // update agent form open close status handler
   const [updateAgentForm, setUpdateAgentForm] = useState(false);
   const updateAgentFormStatus = () => {
     setUpdateAgentForm(!updateAgentForm);
     console.log("updateAgentForm= " + updateAgentForm);
   };
 
+  // get single agent info for updating the agent
   const getSingleAgentInfo_UpdateForm = async (aid) => {
     try {
       const res = await axios.get(
@@ -138,6 +144,7 @@ function Dashboard() {
     <div className="Dashboard">
       <SideNavBar flag={"dashboard"} />
 
+      {/* show agent's detaile info */}
       <AgentInfoCard
         data={singleAgentInfo}
         status={openCard}
@@ -146,12 +153,14 @@ function Dashboard() {
         getSingleListInfo={getSingleListInfo}
       />
 
+      {/* show list data detailed info */}
       <ListInfoCard
         data={singleListInfo}
         status={listCardOpen}
         listCardStatus={listCardStatus}
       />
 
+      {/* form to update agent details */}
       <UpdateAgent
         data={singleAgentInfo}
         getAllAgents={getAllAgents}
