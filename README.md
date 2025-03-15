@@ -10,7 +10,7 @@ Follow these steps to run the project locally:
 
 1. **Clone the Repository**
    ```bash
-   git clone [<repository-url>](https://github.com/ShrikeshB/Admin_system)
+   git clone https://github.com/ShrikeshB/Admin_system
    cd Admin_system
    ```
 
