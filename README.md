@@ -1,24 +1,29 @@
 # Project Setup Guide
 
 ## Prerequisites
+
 Make sure you have the following installed on your system:
+
 - Node.js (Latest LTS version recommended)
 - npm (Node Package Manager)
 - MongoDB (Locally or Cloud-based like MongoDB Atlas)
 
 ## Installation & Setup
+
 Follow these steps to run the project locally:
 
 1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/ShrikeshB/Admin_system
    cd Admin_system
    ```
 
 2. **Set Up MongoDB**
+
    - Start your MongoDB server.
-   - Create a new database named **Admin_System**.
-   - Inside the **Admin_System** database, create a collection named **admins**.
+   - Create a new database named **Admin\_System**.
+   - Inside the **Admin\_System** database, create a collection named **admins**.
    - Insert sample admin details with the following fields:
      ```json
      {
@@ -29,50 +34,67 @@ Follow these steps to run the project locally:
      }
      ```
 
-3. **Navigate to the Server Folder**
+3. **Create a .env File in the Server Folder**
+   Create a `.env` file inside the `server` folder and add the following:
+   ```env
+   MONGO_URL="mongodb://localhost:27017/Admin_System"
+   PORT=
+   SECRET_KEY=""
+   ```
+
+4. **Navigate to the Server Folder**
+
    ```bash
    cd server
    ```
 
-4. **Install Server Dependencies**
+5. **Install Server Dependencies**
+
    ```bash
    npm install
    ```
 
-5. **Start the Backend Server**
+6. **Start the Backend Server**
+
    ```bash
    nodemon server.js
    ```
 
-6. **Navigate to the Client Folder**
+7. **Navigate to the Client Folder**
+
    ```bash
    cd client
    ```
 
-7. **Install Client Dependencies**
+8. **Install Client Dependencies**
+
    ```bash
    npm install
    ```
 
-8. **Start the Frontend Development Server**
+9. **Start the Frontend Development Server**
+
    ```bash
    npm start
    ```
 
-9. **Access the Application**
+10. **Access the Application**
    Open your browser and go to:
+
    ```
    http://localhost:3000/
    ```
 
 ## Additional Notes
+
 - Ensure MongoDB is running before starting the backend server.
 - Ensure the backend server is running before accessing the frontend.
 - If you encounter errors, try running `npm audit fix` or reinstalling dependencies using `npm ci`.
 - The application will automatically reload when you make changes to the code.
 
-## License
-This project is licensed under [MIT License](LICENSE).
+
+
+
 
 
 # Screenshots
